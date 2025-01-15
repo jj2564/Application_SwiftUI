@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "5F212103-A209-4BD0-80EC-8DD36C0117FC",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Features",
+        "identifier" : "FeaturesTests",
+        "name" : "FeaturesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Application.xcodeproj",
+        "identifier" : "D8D890382D37444500E1BAC7",
+        "name" : "ApplicationTests"
+      }
+    }
+  ],
+  "version" : 1
+}

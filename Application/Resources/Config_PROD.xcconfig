@@ -1,0 +1,14 @@
+//
+//  Config_DEV.xcconfig
+//  Application
+//
+//  Created by IrvingHuang on 2025/1/15.
+//
+
+APP_ENVIRONMENT_SITE = PROD
+
+APP_BUNDLE_IDENTIFIER = com.irvinghuang.application
+
+APP_DISPLAY_NAME = 正式版
+
+APP_URL_SCHEME = application
