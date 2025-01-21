@@ -1,5 +1,5 @@
 import ComposableArchitecture
-import AppEnvironment
+import AppEnvironments
 
 @Reducer
 struct AppFeature {
@@ -12,7 +12,7 @@ struct AppFeature {
         case userEnableNotification(Bool)
     }
 
-//    @Dependency(\.systemService) var systemService
+    @Dependency(\.systemService) var systemService
     
     var body: some Reducer<State, Action> {
         Reduce { state, action in
@@ -21,8 +21,8 @@ struct AppFeature {
                 return .send(.checkUserEnableNotification)
             case .checkUserEnableNotification:
                 return .run { send in
-//                    let isEnabled = await systemService.checkUserEnableNotification("id")
-                    await send(.userEnableNotification(true))
+                    let isEnabled = await systemService.checkUserEnableNotification("id")
+                    await send(.userEnableNotification(isEnabled))
                 }
             case .userEnableNotification(_):
                 return .none

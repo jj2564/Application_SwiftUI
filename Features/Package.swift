@@ -3,10 +3,18 @@
 
 import PackageDescription
 
+// MARK: - Product
+let products: [Product] = [
+    .library(name: "Features", targets: ["Features"]),
+    .library(name: "AppEnvironments", targets: ["AppEnvironments"]),
+    .library(name: "HttpServices", targets: ["HttpServices"]),
+]
+
 // MARK: - Dependency
 let dependencies: [Package.Dependency] = [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.17.1"),
     .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.4.0"),
+    .package(url: "https://github.com/apple/swift-http-types.git", from: "1.0.0"),
 ]
 
 // MARK: - Target
@@ -16,7 +24,8 @@ let tca_dependencies: Target.Dependency = .product(name: "Dependencies", package
 let featuresTargets: [Target] = [
     .target(name: "Features",
             dependencies: [
-                "AppEnvironment",
+                "AppEnvironments",
+                "HttpServices",
                 tca
             ]),
     .testTarget(
@@ -30,23 +39,31 @@ let featuresTargets: [Target] = [
 
 let environmentTargets: [Target] = [
     .target(
-        name: "AppEnvironment",
+        name: "AppEnvironments",
         dependencies: [
             tca_dependencies
         ]
     )
 ]
 
-let targets: [Target] = featuresTargets + environmentTargets
+let httpServerTargets: [Target] = [
+    .target(
+        name: "HttpServices",
+        dependencies: [
+            .product(name: "HTTPTypes", package: "swift-http-types"),
+            .product(name: "HTTPTypesFoundation", package: "swift-http-types"),
+            tca_dependencies,
+        ]
+    ),
+]
+
+let targets: [Target] = featuresTargets + environmentTargets + httpServerTargets
 
 // MARK: - Package
 let package = Package(
     name: "Features",
     platforms: [.iOS(.v16)],
-    products: [
-        .library(name: "Features", targets: ["Features"]),
-        .library(name: "AppEnvironment", targets: ["AppEnvironment"])
-    ],
+    products: products,
     dependencies: dependencies,
     targets: targets
 )
