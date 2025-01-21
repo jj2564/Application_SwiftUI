@@ -1,47 +1,33 @@
 
 import ComposableArchitecture
-import SwiftUI
 
-@main
-struct BaseApplication: App {
-    var body: some Scene {
-        WindowGroup {
-            AppView(store: .init(
-                initialState: AppFeature.State(),
-                reducer: { AppFeature() }
-            ))
-        }
-    }
-}
 
-struct AppFeature: Reducer {
-    struct State: Equatable {}
+@Reducer
+struct AppFeature {
+    @ObservableState
+    struct State: Equatable { }
 
-    enum Action {
+    enum Action: Equatable {
         case scenePhaseBecomeActive
+        case checkUserEnableNotification
+        case userEnableNotification(Bool)
     }
 
-    func reduce(into _: inout State, action: Action) -> Effect<Action> {
-        switch action {
-        case .scenePhaseBecomeActive:
-            return .send(.scenePhaseBecomeActive)
-        }
-    }
-}
-
-
-struct AppView: View {
-    let store: StoreOf<AppFeature>
-    @Environment(\.scenePhase) private var scenePhase
-
-    var body: some View {
-        Text("Appliction")
-            .onChange(of: scenePhase) { newValue in
-                switch newValue {
-                case .active:
-                    store.send(.scenePhaseBecomeActive)
-                default: return
+    @Dependency(\.systemService) var systemService
+    
+    var body: some Reducer<State, Action> {
+        Reduce { state, action in
+            switch action {
+            case .scenePhaseBecomeActive:
+                return .send(.checkUserEnableNotification)
+            case .checkUserEnableNotification:
+                return .run { send in
+                    let isEnabled = await systemService.checkUserEnableNotification("id")
+                    await send(.userEnableNotification(isEnabled))
                 }
+            case .userEnableNotification(_):
+                return .none
             }
+        }
     }
 }

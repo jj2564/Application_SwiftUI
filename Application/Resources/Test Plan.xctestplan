@@ -20,6 +20,7 @@
       }
     },
     {
+      "enabled" : false,
       "target" : {
         "containerPath" : "container:Application.xcodeproj",
         "identifier" : "D8D890382D37444500E1BAC7",

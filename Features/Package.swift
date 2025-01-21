@@ -4,7 +4,7 @@
 import PackageDescription
 
 let dependencies: [Package.Dependency] = [
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.17.0"),
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.17.1"),
 ]
 
 let featuresTargets: [Target] = [

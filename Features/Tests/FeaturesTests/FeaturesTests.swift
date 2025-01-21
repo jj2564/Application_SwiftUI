@@ -1,6 +1,21 @@
-import Testing
+import ComposableArchitecture
 @testable import Features
+import Testing
 
-@Test func example() async throws {
-    // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+@MainActor
+struct ApplicationTests {
+    
+    @Test
+    func appBecomeActive() async {
+        let store = TestStore(initialState: AppFeature.State()) {
+            AppFeature()
+        } withDependencies: {
+            $0.systemService.checkUserEnableNotification =  { _ in true }
+        }
+        
+        await store.send(.scenePhaseBecomeActive)
+        await store.receive(.checkUserEnableNotification)
+        await store.receive(.userEnableNotification(true))
+    }
 }
+
