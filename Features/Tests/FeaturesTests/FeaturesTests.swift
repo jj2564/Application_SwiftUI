@@ -15,7 +15,9 @@ struct ApplicationTests {
         
         await store.send(.scenePhaseBecomeActive)
         await store.receive(.checkUserEnableNotification)
-        await store.receive(.userEnableNotification(true))
+        await store.receive(.userEnableNotification(true)) {
+            $0.isEnableUserNotification = true
+        }
     }
 }
 

@@ -2,11 +2,13 @@ import ComposableArchitecture
 import AppEnvironments
 
 @Reducer
-struct AppFeature {
+public struct AppFeature: Sendable {
     @ObservableState
-    struct State: Equatable { }
+    public struct State: Equatable {
+        public var isEnableUserNotification: Bool = false
+    }
 
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case scenePhaseBecomeActive
         case checkUserEnableNotification
         case userEnableNotification(Bool)
@@ -14,7 +16,7 @@ struct AppFeature {
 
     @Dependency(\.systemService) var systemService
     
-    var body: some Reducer<State, Action> {
+    public var body: some Reducer<State, Action> {
         Reduce { state, action in
             switch action {
             case .scenePhaseBecomeActive:
@@ -24,7 +26,8 @@ struct AppFeature {
                     let isEnabled = await systemService.checkUserEnableNotification("id")
                     await send(.userEnableNotification(isEnabled))
                 }
-            case .userEnableNotification(_):
+            case let .userEnableNotification(isEnabled):
+                state.isEnableUserNotification = isEnabled
                 return .none
             }
         }

@@ -24,16 +24,20 @@ struct AppView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
-        Text("Appliction")
-            .onChange(of: scenePhase) { newValue in
-                switch newValue {
-                case .active:
-                    store.send(.scenePhaseBecomeActive)
-                case .background, .inactive:
-                    break
-                default: return
+        WithViewStore(store, observe: { $0.isEnableUserNotification } ) { viewStore in
+            let isEnable = viewStore.state
+            
+            Text("Notification is \(isEnable)")
+                .onChange(of: scenePhase) { newValue in
+                    switch newValue {
+                    case .active:
+                        store.send(.scenePhaseBecomeActive)
+                    case .background, .inactive:
+                        break
+                    default: return
+                    }
                 }
-            }
+        }
     }
 }
 
