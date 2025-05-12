@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D875B5F42DD1BF8000C53F11 /* AppMain in Frameworks */ = {isa = PBXBuildFile; productRef = D875B5F32DD1BF8000C53F11 /* AppMain */; };
 		D8A81D012D3A51CD0031D46D /* Features in Frameworks */ = {isa = PBXBuildFile; productRef = D8A81D002D3A51CD0031D46D /* Features */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		D85C35AB2D3DEB1500F8EA79 /* Features */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Features; sourceTree = "<group>"; };
+		D875B5F22DD1A4F900C53F11 /* AppMain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppMain; sourceTree = "<group>"; };
 		D8D890282D37444300E1BAC7 /* Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Application.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D890392D37444500E1BAC7 /* ApplicationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D890432D37444500E1BAC7 /* ApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8A81D012D3A51CD0031D46D /* Features in Frameworks */,
+				D875B5F42DD1BF8000C53F11 /* AppMain in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +100,7 @@
 		D8D8901F2D37444300E1BAC7 = {
 			isa = PBXGroup;
 			children = (
+				D875B5F22DD1A4F900C53F11 /* AppMain */,
 				D85C35AB2D3DEB1500F8EA79 /* Features */,
 				D8D8902A2D37444300E1BAC7 /* Application */,
 				D8D8903C2D37444500E1BAC7 /* ApplicationTests */,
@@ -144,6 +148,7 @@
 			name = Application;
 			packageProductDependencies = (
 				D8A81D002D3A51CD0031D46D /* Features */,
+				D875B5F32DD1BF8000C53F11 /* AppMain */,
 			);
 			productName = Application;
 			productReference = D8D890282D37444300E1BAC7 /* Application.app */;
@@ -203,7 +208,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1610;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					D8D890272D37444300E1BAC7 = {
 						CreatedOnToolsVersion = 16.1;
@@ -338,6 +343,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -402,6 +408,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -435,8 +442,10 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Application/Resources/info.plist;
@@ -483,6 +492,7 @@
 				CODE_SIGN_ENTITLEMENTS = Application/Resources/Application.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -525,6 +535,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
@@ -550,6 +561,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
@@ -574,6 +586,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
@@ -598,6 +611,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
@@ -657,6 +671,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D875B5F32DD1BF8000C53F11 /* AppMain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppMain;
+		};
 		D8A81D002D3A51CD0031D46D /* Features */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Features;

@@ -14,17 +14,9 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:Features",
-        "identifier" : "FeaturesTests",
-        "name" : "FeaturesTests"
-      }
-    },
-    {
-      "enabled" : false,
-      "target" : {
-        "containerPath" : "container:Application.xcodeproj",
-        "identifier" : "D8D890382D37444500E1BAC7",
-        "name" : "ApplicationTests"
+        "containerPath" : "container:AppMain",
+        "identifier" : "AppMainTests",
+        "name" : "AppMainTests"
       }
     }
   ],

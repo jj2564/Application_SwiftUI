@@ -1,5 +1,12 @@
+//
+//  AppMainTests.swift
+//  AppMain
+//
+//  Created by IrvingHuang on 2025/5/12.
+//
+
 import ComposableArchitecture
-@testable import Features
+@testable import AppMain
 import Testing
 
 @MainActor

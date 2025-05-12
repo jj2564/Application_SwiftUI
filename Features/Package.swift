@@ -12,13 +12,11 @@ let products: [Product] = [
 
 // MARK: - Dependency
 let dependencies: [Package.Dependency] = [
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture", exact: "1.17.1"),
     .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.4.0"),
     .package(url: "https://github.com/apple/swift-http-types.git", from: "1.0.0"),
 ]
 
 // MARK: - Target
-let tca: Target.Dependency = .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
 let tca_dependencies: Target.Dependency = .product(name: "Dependencies", package: "swift-dependencies")
 
 let featuresTargets: [Target] = [
@@ -26,15 +24,7 @@ let featuresTargets: [Target] = [
             dependencies: [
                 "AppEnvironments",
                 "HttpServices",
-                tca
             ]),
-    .testTarget(
-        name: "FeaturesTests",
-        dependencies: [
-            .target(name: "Features"),
-            tca
-        ]
-    )
 ]
 
 let environmentTargets: [Target] = [
@@ -67,6 +57,3 @@ let package = Package(
     dependencies: dependencies,
     targets: targets
 )
-
-
-
